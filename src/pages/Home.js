@@ -8,9 +8,9 @@ function Home() {
         <li>
           <a href="https://www.github.com/vrkonudula/playground">Github</a>
         </li>
-        <Link to="/curriculum">
+        {/* <Link to="/curriculum">
           <li>Curriculum</li>
-        </Link>
+        </Link> */}
         <Link to="/exercise/1">
           <li>Exercise-1</li>
         </Link>
