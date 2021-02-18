@@ -1,0 +1,17 @@
+nav {
+    display: flex;
+    flex-direction: column;
+}
+li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+li > a {
+    text-decoration: none;
+}
+
+.main {
+    display: flex;
+    justify-content: space-evenly;
+}

@@ -1,0 +1,28 @@
+$small: 4px;
+$medium: 8px;
+$large: 12px;
+$xlarge: 16px;
+
+.ms {
+    margin: $small;
+}
+
+.mm {
+    margin: $medium;
+}
+
+.ml {
+    margin: $large;
+}
+
+.ps {
+    padding: $small;
+}
+
+.pm {
+    padding: $medium;
+}
+
+.pl {
+    padding: $large;
+}
