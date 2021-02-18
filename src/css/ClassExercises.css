@@ -10,6 +10,10 @@
     visibility: hidden;
 }
 
+.dn {
+    display: none;
+}
+
 .image {
     position: absolute;
     top: 0;
@@ -19,6 +23,6 @@
     z-index: -1;
 }
 
-.mm:hover {
+.mm {
     border-bottom: 10px solid red;
 }
