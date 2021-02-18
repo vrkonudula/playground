@@ -1,0 +1,24 @@
+.red:hover {
+    color: red;
+}
+
+.random:nth-child(2n) {
+    background-color: yellow;
+}
+
+.vh {
+    visibility: hidden;
+}
+
+.image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    z-index: -1;
+}
+
+.mm:hover {
+    border-bottom: 10px solid red;
+}
