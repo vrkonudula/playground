@@ -15,7 +15,7 @@ function App() {
     <Router>
       <div className="main">
           <Route path="/" component={Home} exact/>
-          <Route path="/curriculum" component={Curriculum} />
+          {/* <Route path="/curriculum" component={Curriculum} /> */}
           <Route path="/exercise/1" component={Exercise1} />
         <Route path="/exercise/2" component={Exercise2} />
         <Route path="/class/exercise" component={ClassExercises}/>
