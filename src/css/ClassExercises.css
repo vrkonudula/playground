@@ -1,4 +1,4 @@
-.red:hover {
+/* .red:hover {
     color: red;
 }
 
@@ -25,4 +25,14 @@
 
 .mm {
     border-bottom: 10px solid red;
+} */
+
+.sample {
+    width: 150px;
+    height: 200px;
+    border: 10px solid black;
+}
+
+.sample1 {
+    margin-top: -220px;
 }
