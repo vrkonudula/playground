@@ -17,6 +17,9 @@ function Home() {
         <Link to="/exercise/2">
           <li>Exercise-2</li>
         </Link>
+        <Link to="/exercise/theme">
+          <li>Theme Exercise</li>
+        </Link>
         <Link to="/class/exercise">
           <li>Class Exercises</li>
         </Link>

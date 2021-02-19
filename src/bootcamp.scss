@@ -1,28 +1,38 @@
-$small: 4px;
-$medium: 8px;
-$large: 12px;
-$xlarge: 16px;
 
-.ms {
-    margin: $small;
+$fonty: "Comic sans";
+$my-font-size: 20px;
+$darktheme-background-color: black;
+$darktheme-color: #27d545;
+$lighttheme-color: black;
+$lighttheme-background-color: white; 
+
+@mixin darktheme {
+    background-color: $darktheme-background-color;
+    color: $darktheme-color;
+    font-size: $my-font-size;
+    font-family: 'Times New Roman', Times, serif;
 }
 
-.mm {
-    margin: $medium;
+@mixin lighttheme {
+    background-color: $lighttheme-background-color;
+    color: $lighttheme-color;
+    font-size: $my-font-size;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
-.ml {
-    margin: $large;
+.darktheme {
+    @include darktheme;
+    height: 300px;
+    width: 300px;
 }
 
-.ps {
-    padding: $small;
+.lighttheme {
+    @include lighttheme;
+    height: 300px;
+    width: 300px;
+    background-color: lightcoral;
 }
 
-.pm {
-    padding: $medium;
-}
-
-.pl {
-    padding: $large;
+.toolip:hover {
+    color: burlywood;
 }
