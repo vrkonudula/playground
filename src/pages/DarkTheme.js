@@ -1,4 +1,4 @@
-import '../bootcamp.scss';
+import '../theme.scss';
 import { useState } from 'react';
 function DarkTheme() {
     const [th, setTh] = useState("lighttheme");

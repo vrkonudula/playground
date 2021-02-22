@@ -5,3 +5,8 @@ input {
 select {
     margin-bottom: 20px;
 }
+
+.e1content {
+    display: flex;
+    justify-content: space-evenly;
+}

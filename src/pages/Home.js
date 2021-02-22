@@ -20,8 +20,8 @@ function Home() {
         <Link to="/exercise/theme">
           <li>Theme Exercise</li>
         </Link>
-        <Link to="/class/exercise">
-          <li>Class Exercises</li>
+        <Link to="/exercise/stock-market">
+          <li>Stock Market Exercise</li>
         </Link>
       </nav>
     </div>
