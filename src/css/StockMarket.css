@@ -1,0 +1,176 @@
+#stockMain {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#stockContent {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+#stockHead {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+#status {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#controls {
+    display: flex;
+    justify-content: space-between;
+}
+
+#operation > button {
+    background-color: #3e11e2;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#speed > button {
+background-color: #e21179;
+border: none;
+border-radius: 5px;
+color: white;
+padding: 5px 10px;
+text-align: center;
+text-decoration: none;
+font-size: 16px;
+margin: 4px 2px;
+cursor: pointer;
+}
+
+#eventContainer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#events {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: black;
+    max-width: 850px;
+}
+
+.event {
+    height:100px;
+    width: 150px;
+    background-color: rgb(91, 235, 187);
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.eventHeading {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.eventValue {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+#orderBook {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#orderBookText {
+    font-weight: 600;
+    font-size: 22px;
+}
+
+#tableContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.tableHeading {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.tableLayout{
+    width: 50%;
+}
+
+.tables {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    width: 90%;
+    border: 1px solid transparent;
+    border-collapse: collapse;
+}
+
+th {
+min-width: 80px;
+text-align: center;
+height: 50px;
+background-color: rgb(91, 235, 187);
+color: black;
+}
+
+td {
+min-width: 80px;
+text-align: center;
+height: 40px;
+}
+
+tr:nth-child(2n+1) {
+    background-color: rgba(165, 163, 163, 0.515);
+}
+
+
+@media only screen and (max-width:970px) {
+    #events {
+        max-width: 510px;
+    }
+
+    .tableLayout {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #events {
+        max-width: 340px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #events {
+        max-width: 166px;
+    }
+}
