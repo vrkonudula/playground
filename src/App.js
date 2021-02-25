@@ -8,8 +8,6 @@ import StockMarket from "./pages/StockMarket";
 import JSQuestions from './pages/JSQuestions';
 // import sample from './pages/sample';
 
-import "./App.css";
-
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import sample from "./pages/sample";
 
