@@ -23,6 +23,9 @@ function Home() {
         <Link to="/exercise/stock-market">
           <li>Stock Market Exercise</li>
         </Link>
+        <Link to="/exercise/js-questions">
+          <li>JS questions</li>
+        </Link>
       </nav>
     </div>
   )
