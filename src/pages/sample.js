@@ -1,22 +1,12 @@
-import '../css/sample.css';
+import "../css/sample.css";
+const data = require("../data/Student_Data.json");
 function sample() {
-    return (
-        <>
-            <div className='total'>
-                <div className="gri">1</div>
-                <div className="gri">2</div>
-                <div className="gri">3</div>
-                <div className="gri">4</div>
-                <div className="gri">5</div>
-                <div className="gri">6</div>   
-            </div>
-            {/* <div className="gri">
-                <div className="left"></div>
-                <div className="right"></div>
-            </div> */}
-            
-            
-        </>
-    )
+  return (
+    <>
+        {data.map((item, ind) => {
+            return <p style={{"fontSize":"20px"}} key={ind}>{item.Employer}, {item.Job_Title}, {item.Career_Url}</p>;
+        })}
+    </>
+  );
 }
 export default sample;
