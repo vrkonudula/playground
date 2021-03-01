@@ -6,12 +6,11 @@ import ClassExercises from "./pages/ClassExercises";
 import DarkTheme from "./pages/DarkTheme";
 import StockMarket from "./pages/StockMarket";
 import JSQuestions from './pages/JSQuestions';
+import ReactPractice from './pages/ReactPractice';
+import Lottery from './pages/lottery/Lottery';
 // import sample from './pages/sample';
 
-import "./App.css";
-
 import { Route, BrowserRouter as Router } from "react-router-dom";
-import sample from "./pages/sample";
 
 function App() {
   return (
@@ -24,8 +23,9 @@ function App() {
       <Route path="/exercise/theme" component={DarkTheme} />
       <Route path="/exercise/stock-market" component={StockMarket} />
       <Route path="/exercise/js-questions" component={JSQuestions} />
-      <Route path="/sample" component={sample}/>
       <Route path="/class" component={ClassExercises} />
+      <Route path="/lottery" component={Lottery} />
+      <Route path="/react/practice" component= { ReactPractice}/>
     </Router>
   );
 }
