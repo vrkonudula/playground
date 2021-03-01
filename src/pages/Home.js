@@ -8,6 +8,9 @@ function Home() {
         <li>
           <a href="https://www.github.com/vrkonudula/playground">Github</a>
         </li>
+        <Link to='/lottery'>
+          <li>Lottery</li>
+        </Link>
         {/* <Link to="/curriculum">
           <li>Curriculum</li>
         </Link> */}
@@ -26,6 +29,7 @@ function Home() {
         <Link to="/exercise/js-questions">
           <li>JS questions</li>
         </Link>
+        
       </nav>
     </div>
   )
