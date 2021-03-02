@@ -1,0 +1,25 @@
+.card-container {
+    margin: 10px;
+    padding: 10px;
+    color: black;
+    background-color: aquamarine;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.card-container-favourite {
+    background-color: rgb(199, 174, 61);
+     margin: 10px;
+     padding: 10px;
+     color: black;
+     font-weight: 600;
+     border-radius: 10px;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.invisible {
+    visibility: hidden;
+}
