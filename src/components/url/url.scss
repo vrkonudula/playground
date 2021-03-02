@@ -1,0 +1,28 @@
+.career-link {
+    margin-bottom: 10px;
+    
+}
+
+.url > a:link {
+    text-decoration: none;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    border-bottom: 1px solid rgb(25, 95, 72);
+}
+
+.url > a:visited {
+    color: black;
+    border-bottom: 1px solid rgb(25, 95, 72);
+}
+
+.modifiedUrl > a:link {
+    text-decoration: none;
+    font-weight: 500;
+    color: darkblue;
+    border-bottom: 2px solid black;
+}
+
+.modifiedUrl > a:visited {
+    color: darkblue;
+    border-bottom: 2px solid black;
+}
