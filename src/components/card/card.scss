@@ -1,25 +1,36 @@
 .card-container {
-    margin: 10px;
-    padding: 10px;
-    color: black;
-    background-color: aquamarine;
-    font-weight: 600;
-    border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  color: black;
+  background-color: aquamarine;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.card-container:hover {
+  box-shadow: 2px 2px 0 2px;
 }
 
 .card-container-favourite {
-    background-color: rgb(199, 174, 61);
-     margin: 10px;
-     padding: 10px;
-     color: black;
-     font-weight: 600;
-     border-radius: 10px;
+  background-color: rgb(199, 174, 61);
+  margin: 10px;
+  padding: 10px;
+  color: black;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.card-container-favourite:hover {
+  transform: scale(1.02);
+  box-shadow: 2px 2px 0 2px;
 }
 
 .visible {
-    visibility: visible;
+  visibility: visible;
 }
 
 .invisible {
-    visibility: hidden;
+  visibility: hidden;
 }

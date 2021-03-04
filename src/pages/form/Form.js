@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-//import {useLocation} from 'react-router-dom'
 import "./form.scss";
 
 function Form(props) {
@@ -23,13 +21,11 @@ function Form(props) {
   } = props;
 
   function handleDisabled() {
-    if (
-      (employer.length < 2 || universityName.length > 100) &&
-      !submitDisable
-    ) {
-      return true;
+    let elen = employer.length;
+    if (elen >= 2 && elen <= 20 && !submitDisable) {
+      return false;
     }
-    return false;
+    return true;
   }
 
   return (
@@ -96,13 +92,7 @@ function Form(props) {
           />
         </div>
         <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-          <button
-            type="submit"
-            disabled={handleDisabled()}
-            onClick={(e) => handleSubmitForm()}
-          >
-            Submit form
-          </button>
+    
         </div>
       </div>
     </div>

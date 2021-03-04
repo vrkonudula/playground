@@ -1,5 +1,6 @@
 import "../theme.scss";
 import { useState } from "react";
+import { Button } from 'reactstrap';
 function DarkTheme() {
   const [th, setTh] = useState("lighttheme");
   return (
@@ -23,6 +24,9 @@ function DarkTheme() {
       >
         Dark Theme
       </button>
+      <div>
+        <Button color="danger">Danger!</Button>
+      </div>
     </div>
   );
 }

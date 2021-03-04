@@ -1,0 +1,46 @@
+.buttonVisible {
+  visibility: visible;
+  margin-right: 10px;
+  cursor: pointer;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.buttonInvisible {
+  visibility: hidden;
+}
+
+.pagesDiv {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 20px;
+  margin: 20px;
+}
+
+.pageUnselected {
+  margin-right: 10px;
+  cursor: pointer;
+  border: 2px solid black;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.pageSelected {
+  margin-right: 10px;
+  cursor: pointer;
+  border: 2px solid black;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  background-color: aquamarine;
+  font-weight: 600;
+}

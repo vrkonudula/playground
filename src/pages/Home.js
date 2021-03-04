@@ -29,6 +29,9 @@ function Home() {
         <Link to="/exercise/js-questions">
           <li>JS questions</li>
         </Link>
+        <Link to="/react/practice">
+          <li>React Practice Application</li>
+        </Link>
         
       </nav>
     </div>
