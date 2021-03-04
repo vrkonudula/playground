@@ -28,7 +28,7 @@ function Exercise1() {
           </select>{" "}
           <br />
           <label for="mail">Email address : </label>
-          <input type="email" id="mail" />
+          <input type="email" />
           <br />
           <label for="file" multiple>
             Resume :{" "}
