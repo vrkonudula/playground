@@ -54,12 +54,12 @@ function SearchBar(props) {
           placeholder="Search for companies"
           style={{ width: "300px", height: "50px", marginRight: "20px" }}
         ></input>
-        <Button outline color="secondary" onClick={() => getName()}>
+        <Button color="secondary" onClick={() => getName()}>
           Find Records
         </Button>
         {showSearched ? (
           <>
-            <Button outline color="warning" onClick={() => clearSearch()}>
+            <Button color="warning" onClick={() => clearSearch()}>
               Clear Search
             </Button>
             <Checkboxes
