@@ -5,9 +5,14 @@ function Home() {
     <div>
       <h2>Welcome to Wynisco React Boot camp.</h2>
       <nav>
+        <div style={{display:"flex",marginLeft:"0"}}>
         <li>
           <a href="https://www.github.com/vrkonudula/playground">Github</a>
-        </li>
+          </li>
+          <li style={{marginLeft:"10px"}}>
+          <a href="https://reaction-venkat-konudula.herokuapp.com">React Application Backend</a>
+          </li>
+          </div>
         <Link to='/lottery'>
           <li>Lottery</li>
         </Link>
