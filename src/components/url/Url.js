@@ -8,7 +8,7 @@ function Url(props) {
     const { theme } = props;
     return (
         <>
-            <div className={`${theme} career-link`} >
+            <div className={`${theme} career-link`} onClick={(e) => e.stopPropagation()}>
                 <a href={url} target="blank">{ children }</a>
             </div>
         </>

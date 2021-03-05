@@ -2,10 +2,12 @@ import React from "react";
 import Url from "../url/Url";
 import "../card/card.scss";
 import PropTypes from "prop-types";
+import { useHistory } from "react-router-dom";
 
 function Card(props) {
-  const { cardData, setFav, fav, deleteRecord, getRecordDetails } = props;
+  const { cardData, setFav, fav, deleteRecord } = props;
   const { url, name, title, Id } = cardData;
+  const history = useHistory()
 
   function handleClick(e, Id) {
     e.stopPropagation();
@@ -31,19 +33,23 @@ function Card(props) {
     return fav.includes(Id);
   }
 
+  function pushRouter(id) {
+    history.push(`/react/practice/details/${id}`);
+  }
+
   return (
     <div
       className={isFavourite() ? "card-container-favourite" : "card-container"}
-      onClick={() => getRecordDetails(Id)}
+      onClick={() => pushRouter(Id)}
     >
       <Url url={url} theme="url">
         Career Site
       </Url>
       <div>{name}</div>
       <div>{title}</div>
-      <button onClick={(e) => handleClick(e, Id)}>Favourite</button>
-      <button onClick={(e) => handleClickUnFav(e, Id)}>Unfavourite</button>
-      <button onClick={(e) => deleteRecord(e, Id)}>Delete Record</button>
+      <button className="controlbtn" onClick={(e) => handleClick(e, Id)}>Favourite</button>
+      <button className="controlbtn" onClick={(e) => handleClickUnFav(e, Id)}>Unfavourite</button>
+      <button className="controlbtn" onClick={(e) => deleteRecord(e, Id)}>Delete Record</button>
     </div>
   );
 }

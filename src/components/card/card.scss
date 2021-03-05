@@ -8,9 +8,7 @@
   cursor: pointer;
 }
 
-.card-container:hover {
-  box-shadow: 2px 2px 0 2px;
-}
+
 
 .card-container-favourite {
   background-color: rgb(199, 174, 61);
@@ -22,10 +20,7 @@
   cursor: pointer;
 }
 
-.card-container-favourite:hover {
-  transform: scale(1.02);
-  box-shadow: 2px 2px 0 2px;
-}
+
 
 .visible {
   visibility: visible;
@@ -34,3 +29,11 @@
 .invisible {
   visibility: hidden;
 }
+
+.controlbtn {
+  margin: 10px 5px 5px 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(99, 202, 151);
+}
+

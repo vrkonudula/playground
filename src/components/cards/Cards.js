@@ -23,7 +23,6 @@ function Cards(props) {
     pages.push(Number(i + 1));
   }
   let copy = items.slice(count * (currentPage - 1), count * currentPage);
-  console.log(`${count * (currentPage - 1)} - ${count * currentPage}`);
   return (
     <div>
       {/* <Modal isOpen={modal} toggle={toggle} >
@@ -102,7 +101,7 @@ function Cards(props) {
                 setFav={setFav}
                 fav={fav}
                 deleteRecord={deleteRecord}
-                getRecordDetails={getRecordDetails}
+                //getRecordDetails={getRecordDetails}
                 modal={modal}
                 setModal={setModal}
                 toggle={toggle}
@@ -124,7 +123,7 @@ function Cards(props) {
                 setFav={setFav}
                 fav={fav}
                 deleteRecord={deleteRecord}
-                getRecordDetails={getRecordDetails}
+                //getRecordDetails={getRecordDetails}
                 modal={modal}
                 setModal={setModal}
                 toggle={toggle}
