@@ -32,7 +32,9 @@ function Home() {
         <Link to="/react/practice">
           <li>React Practice Application</li>
         </Link>
-        
+        <Link to="/carousel">
+          <li>Carousel project</li>
+        </Link>
       </nav>
     </div>
   )
