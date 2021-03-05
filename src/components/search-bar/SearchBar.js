@@ -11,7 +11,9 @@ function SearchBar(props) {
     setShowSearched,
     showSearched,
     filterYears,
-    setFilterYears,
+      setFilterYears,
+      searchedData,
+    setSearchedData
   } = props;
 
   function getName() {
@@ -24,13 +26,16 @@ function SearchBar(props) {
     setFilterYears(undefined);
   }
   function handleCheckBox(e, year) {
-    if (e.checked === true) {
+    if (e.target.checked === true) {
       let copyYears = [...checkedYears];
-      copyYears.push(year);
+        copyYears.push(year);
+        console.log(copyYears);
       setCheckedYears(copyYears);
-      let copy = [...filterYears];
-      let newData = copy.filter((item) =>
-        copyYears.includes(item.Graduation_Year)
+        let copy = [...searchedData];
+        console.log(copy);
+        let newData = copy.filter((item) => {
+            copyYears.includes(item.Graduation_Year)
+        }
       );
       console.log(newData);
       setShowSearched(newData);

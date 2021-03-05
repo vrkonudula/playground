@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import dataJSON from "../data/Student_Data.json";
+//import dataJSON from "../data/Student_Data.json";
 import "../css/ReactPractice.scss";
 import { v4 as uuidv4 } from "uuid";
 import Form from "./form/Form";
@@ -8,15 +8,10 @@ import ModalExample from "../components/modal/Modal";
 import FullCard from "../components/full-card/FullCard";
 import SearchBar from "../components/search-bar/SearchBar";
 import Cards from "../components/cards/Cards";
+import { axios } from '../api'
+import CircularProgress from "@material-ui/core/CircularProgress";
 
-const uuidData = dataJSON.map((i) => {
-  return {
-    ...i,
-    Id: uuidv4(),
-  };
-});
-
-function ReactPractice() {
+function ReactPractice() { 
   const [fav, setFav] = useState([]);
   const [data, setData] = useState([]);
   const [deletedRecords, setDeletedRecords] = useState([]);
@@ -34,12 +29,13 @@ function ReactPractice() {
   const [searchedData, setSearchedData] = useState([]);
   const [modalform, setModalform] = useState(false);
   const [filterYears, setFilterYears] = useState(undefined);
+  const [isLoading, setIsLoading] = useState(true);
 
   const toggle = () => setModal(!modal);
   const toggleForm = () => setModalform(!modalform);
 
   function getFavs() {
-    let favData = uuidData.filter((i) => {
+    let favData = data.filter((i) => {
       return fav.includes(i.Id);
     });
     let favDataNames = favData.map((i) => i.Employer);
@@ -48,7 +44,7 @@ function ReactPractice() {
   }
 
   function getDeletedNames() {
-    let names = uuidData.filter((i) => {
+    let names = data.filter((i) => {
       return deletedRecords.includes(i.Id);
     });
     let deletedRecordNames = names.map((i) => i.Employer);
@@ -70,7 +66,7 @@ function ReactPractice() {
     let mergedData = [...data];
     deletedRecords.forEach((i) =>
       mergedData.push(
-        uuidData.find((record) => {
+        data.find((record) => {
           return record.Id === i;
         })
       )
@@ -79,13 +75,20 @@ function ReactPractice() {
     setDeletedRecords([]);
   }
 
-  function getRecordDetails(id) {
-    let copy = [...data];
-    let record = copy.find((record) => record.Id === id);
-    setFullObject(record);
-    console.log(record);
-    toggle();
-  }
+
+  
+
+  // function getRecordDetails(id) {
+  //   // let copy = [...data];
+  //   // let record = copy.find((record) => record.Id === id);
+  //   // setFullObject(record);
+  //   // console.log(record);
+  //   axios.get(`/record?id=${id}`)
+  //     .then(resp => resp.data)
+  //     .then(data => setFullObject(data))
+  //     .catch(err => console.log(err))
+  //   toggle();
+  // }
 
   function searchRecords(value) {
     if (value !== "") {
@@ -124,152 +127,136 @@ function ReactPractice() {
   }
 
   useEffect(() => {
-    setData(uuidData);
+    axios
+      .get("/records")
+      .then((resp) => resp.data)
+      .then((data) => {
+        setIsLoading(false);
+        setData(data);
+      })
+      .catch((err) => console.log(err));
+    //setData(uuidData);
   }, []);
 
   return (
     <>
-      <div>
-        <ModalExample
-          toggle={toggleForm}
-          modal={modalform}
-          title="Complete Details"
-          showFooter={true}
-          handleSubmitForm={handleSubmitForm}
-        >
-          <Form
-            employer={employer}
-            setEmployer={setEmployer}
-            careerUrl={careerUrl}
-            setCareerUrl={setCareerUrl}
-            specialization={specialization}
-            setSpecialization={setSpecialization}
-            startDate={startDate}
-            setStartDate={setStartDate}
-            jobTitle={jobTitle}
-            setJobTitle={setJobTitle}
-            universityName={universityName}
-            setuniversityName={setuniversityName}
-            graduationYear={graduationYear}
-            setGraduationYear={setGraduationYear}
-            submitDisable={submitDisable}
+      {isLoading ? (
+        <div style={{display:"flex",height:"100vh",alignItems:"center",justifyContent:"space-evenly"}}><CircularProgress color="secondary" /></div>
+      ) : (
+        <>
+          <div>
+            <ModalExample
+              toggle={toggleForm}
+              modal={modalform}
+              title="Complete Details"
+              showFooter={true}
+              handleSubmitForm={handleSubmitForm}
+            >
+              <Form
+                employer={employer}
+                setEmployer={setEmployer}
+                careerUrl={careerUrl}
+                setCareerUrl={setCareerUrl}
+                specialization={specialization}
+                setSpecialization={setSpecialization}
+                startDate={startDate}
+                setStartDate={setStartDate}
+                jobTitle={jobTitle}
+                setJobTitle={setJobTitle}
+                universityName={universityName}
+                setuniversityName={setuniversityName}
+                graduationYear={graduationYear}
+                setGraduationYear={setGraduationYear}
+                submitDisable={submitDisable}
+              />
+            </ModalExample>
+            <div>Total number of records : {data.length}</div>
+            <div>Total number of deleted records : {deletedRecords.length}</div>
+            <h6>
+              <span
+                style={{
+                  fontWeight: "500",
+                  borderBottom: "1px solid",
+                  cursor: "pointer",
+                }}
+                onClick={toggleForm}
+              >
+                Click here
+              </span>{" "}
+              to create new record.
+            </h6>
+            <h2>Favourite Companies</h2>
+
+            <div style={{ fontWeight: "500", marginBottom: "20px" }}>
+              {fav.length > 0 ? getFavs().join(", ") : "No favourites added"}
+            </div>
+            <div>
+              <button
+                onClick={() => {
+                  setFav([]);
+                }}
+              >
+                Remove all Favourites
+              </button>
+              <button
+                onClick={() => {
+                  getAllRecords();
+                }}
+              >
+                Retrieve Deleted Records
+              </button>
+            </div>
+          </div>
+          <div>
+            <h2>List of companies</h2>
+            <div style={{ display: "flex" }}>
+              <div style={{ display: "flex" }}>
+                <div className="orangeDiv"></div>
+                <div className="text">Favourites</div>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  marginLeft: "10px",
+                  marginBottom: "20px",
+                }}
+              >
+                <div className="greenDiv"></div>
+                <div className="text">Unfavourites</div>
+              </div>
+            </div>
+          </div>
+          <SearchBar
+            searchRecords={searchRecords}
+            setShowSearched={setShowSearched}
+            showSearched={showSearched}
+            filterYears={filterYears}
+            setFilterYears={setFilterYears}
+            searchedData={searchedData}
+            setSearchedData={setSearchedData}
           />
-        </ModalExample>
-        <div>Total number of records : {data.length}</div>
-        <div>Total number of deleted records : {deletedRecords.length}</div>
-        <h6>
-          <span
-            style={{
-              fontWeight: "500",
-              borderBottom: "1px solid",
-              cursor: "pointer",
-            }}
-            onClick={toggleForm}
+          <ModalExample
+            toggle={toggle}
+            modal={modal}
+            title="Complete Details"
+            showFooter={false}
           >
-            Click here
-          </span>{" "}
-          to create new record.
-        </h6>
-        <h2>Favourite Companies</h2>
+            <FullCard cardData={fullObject} />
+          </ModalExample>
 
-        <div style={{ fontWeight: "500", marginBottom: "20px" }}>
-          {fav.length > 0 ? getFavs().join(", ") : "No favourites added"}
-        </div>
-        <div>
-          <button
-            onClick={() => {
-              setFav([]);
-            }}
-          >
-            Remove all Favourites
-          </button>
-          <button
-            onClick={() => {
-              getAllRecords();
-            }}
-          >
-            Retrieve Deleted Records
-          </button>
-
-          {/* <Link
-            to={{
-              pathname: "/react/form",
-            state: {
-                employer: employer,
-                setEmployer: setEmployer(),
-                careerUrl: careerUrl,
-                setCareerUrl: setCareerUrl(),
-                specialization: specialization,
-                setSpecialization: setSpecialization(),
-                startDate: startDate,
-                setStartDate: setStartDate(),
-                jobTitle: jobTitle,
-                setJobTitle: setJobTitle(),
-                universityName: universityName,
-                setuniversityName: setuniversityName(),
-                graduationYear: graduationYear,
-                setGraduationYear: setGraduationYear()
-              }
-            }}
-            style={{
-              textDecoration: "none",
-              marginLeft: "10px",
-              padding: "5px",
-              backgroundColor: "brown",
-              color: "white",
-              borderRadius: "3px",
-            }}
-          >
-            Create new record
-          </Link> */}
-        </div>
-      </div>
-      <div>
-        <h2>List of companies</h2>
-        <div style={{ display: "flex" }}>
-          <div style={{ display: "flex" }}>
-            <div className="orangeDiv"></div>
-            <div className="text">Favourites</div>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              marginLeft: "10px",
-              marginBottom: "20px",
-            }}
-          >
-            <div className="greenDiv"></div>
-            <div className="text">Unfavourites</div>
-          </div>
-        </div>
-      </div>
-      <SearchBar
-        searchRecords={searchRecords}
-        setShowSearched={setShowSearched}
-        showSearched={showSearched}
-        filterYears={filterYears}
-        setFilterYears={setFilterYears}
-      />
-      <ModalExample
-        toggle={toggle}
-        modal={modal}
-        title="Complete Details"
-        showFooter={false}
-      >
-        <FullCard cardData={fullObject} />
-      </ModalExample>
-
-      <Cards
-        items={!showSearched ? data : searchedData}
-        setFav={setFav}
-        fav={fav}
-        deleteRecord={deleteRecord}
-        getRecordDetails={getRecordDetails}
-        modal={modal}
-        setModal={setModal}
-        toggle={toggle}
-        showSearched={showSearched}
-      />
+          <Cards
+            items={!showSearched ? data : searchedData}
+            setFav={setFav}
+            fav={fav}
+            deleteRecord={deleteRecord}
+            //getRecordDetails={getRecordDetails}
+            modal={modal}
+            setModal={setModal}
+            toggle={toggle}
+            showSearched={showSearched}
+          />
+        </>
+      )}
     </>
   );
 }

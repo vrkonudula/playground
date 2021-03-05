@@ -10,6 +10,7 @@ import Lottery from './pages/lottery/Lottery';
 
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import Form from "./pages/form/Form";
+import FullCard from "./components/full-card/FullCard";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Route path="/class" component={ClassExercises} />
       <Route path="/lottery" component={Lottery} />
       <Route path="/react/practice" exact component={ReactPractice} />
+      <Route path="/react/practice/details/:id" exact component={FullCard} />
       <Route path="/react/form" exact component={Form} />
     </Router>
   );
