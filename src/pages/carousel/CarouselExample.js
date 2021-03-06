@@ -11,34 +11,41 @@ let images = [
 
 function CarouselExample() {
   const [index, setIndex] = useState(0);
-    const [imageUrl, setImageUrl] = useState(undefined);
-    
-    useEffect(() => {
-        let image = images[index];
-        setImageUrl(image);
-    },[index])
+  const [imageUrl, setImageUrl] = useState(undefined);
+  const [vhLeft, setVhLeft] = useState("");
+  const [vhRight, setVhRight] = useState("");
 
-    function handleLeft() {
-        console.log('left');
-        if (index > 0) {
-            console.log('left invoked');
-            setIndex(index - 1);
-        }
-    }
+  useEffect(() => {
+    if (index === 0) setVhLeft("arrowInvisible");
+    else setVhLeft("");
+    if (index === images.length - 1) setVhRight("arrowInvisible");
+    else setVhRight("");
+    let image = images[index];
+    setImageUrl(image);
+  }, [index]);
 
-    function handleRight() {
-        console.log('right');
-        if (index < images.length - 1) {
-            console.log('right invoked');
-            setIndex(index + 1);
-        }
+  function handleLeft() {
+    console.log("left");
+    if (index > 0) {
+      console.log("left invoked");
+      setIndex(index - 1);
     }
-    
+  }
+
+  function handleRight() {
+    console.log("right");
+    if (index < images.length - 1) {
+      console.log("right invoked");
+      setIndex(index + 1);
+    } else {
+    }
+  }
+
   return (
     <div id="carousel-main">
       <div id="carousel">
         <div id="leftNav">
-          <div onClick={() => handleLeft()}>
+          <div className={`${vhLeft}`} onClick={() => handleLeft()}>
             <ArrowBackIosIcon />
           </div>
         </div>{" "}
@@ -46,12 +53,15 @@ function CarouselExample() {
           <img id="photo" src={imageUrl} alt="project pics" />
         </div>
         <div id="rightNav">
-          <div onClick={() => handleRight()}>
+          <div className={`${vhRight}`} onClick={() => handleRight()}>
             <ArrowForwardIosIcon />
           </div>
         </div>{" "}
       </div>{" "}
-      <div className="imageNumber"> {index + 1} - {images.length} </div>
+      <div className="imageNumber">
+        {" "}
+        {index + 1} - {images.length}{" "}
+      </div>
     </div>
   );
 }
