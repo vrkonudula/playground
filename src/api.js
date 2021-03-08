@@ -1,5 +1,7 @@
 import axios from 'axios'
 
-axios.defaults.baseURL = 'https://reaction-venkat-konudula.herokuapp.com';
+let baseURL = process.env.REACT_APP_BACKEND_URL;
 
-export { axios };
+export default axios.create({
+    baseURL
+});

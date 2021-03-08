@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Url from "../url/Url";
 import "../full-card/fullcard.scss";
 import { useParams } from "react-router-dom";
-import { axios } from '../../api';
+import axios from '../../api';
 
 function FullCard(props) {
   const [object, setObject] = useState({});
