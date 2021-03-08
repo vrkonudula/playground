@@ -8,7 +8,7 @@ import ModalExample from "../components/modal/Modal";
 import FullCard from "../components/full-card/FullCard";
 import SearchBar from "../components/search-bar/SearchBar";
 import Cards from "../components/cards/Cards";
-import { axios } from '../api'
+import axios from '../api'
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 function ReactPractice() { 
