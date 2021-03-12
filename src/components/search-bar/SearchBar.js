@@ -1,19 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "reactstrap";
-import Checkboxes from "../checkboxes/Checkboxes";
 import "./searchbar.scss";
 
 function SearchBar(props) {
-  const [checkedYears, setCheckedYears] = useState([]);
-
   const {
     searchRecords,
     setShowSearched,
     showSearched,
-    filterYears,
-      setFilterYears,
-      searchedData,
-    setSearchedData
+    setSearchValue,
   } = props;
 
   function getName() {
@@ -22,25 +16,10 @@ function SearchBar(props) {
   }
   function clearSearch() {
     document.getElementById("search").value = "";
+    setSearchValue(undefined);
     setShowSearched(false);
-    setFilterYears(undefined);
   }
-  function handleCheckBox(e, year) {
-    if (e.target.checked === true) {
-      let copyYears = [...checkedYears];
-        copyYears.push(year);
-        console.log(copyYears);
-      setCheckedYears(copyYears);
-        let copy = [...searchedData];
-        console.log(copy);
-        let newData = copy.filter((item) => {
-            copyYears.includes(item.Graduation_Year)
-        }
-      );
-      console.log(newData);
-      setShowSearched(newData);
-    }
-  }
+
   function focusInput() {
     document.getElementById("search").focus();
   }
@@ -67,10 +46,6 @@ function SearchBar(props) {
             <Button color="warning" onClick={() => clearSearch()}>
               Clear Search
             </Button>
-            <Checkboxes
-              filterYears={filterYears}
-              handleCheckBox={handleCheckBox}
-            />
           </>
         ) : (
           ""
