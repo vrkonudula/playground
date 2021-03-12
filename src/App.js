@@ -4,15 +4,16 @@ import Exercise2 from "./pages/Exercise2";
 import ClassExercises from "./pages/ClassExercises";
 import DarkTheme from "./pages/DarkTheme";
 import StockMarket from "./pages/StockMarket";
-import JSQuestions from './pages/JSQuestions';
-import ReactPractice from './pages/ReactPractice';
-import Lottery from './pages/lottery/Lottery';
+import JSQuestions from "./pages/JSQuestions";
+import ReactPractice from "./pages/ReactPractice";
+import Lottery from "./pages/lottery/Lottery";
 
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import Form from "./pages/form/Form";
 import FullCard from "./components/full-card/FullCard";
-import CarouselExample from './pages/carousel/CarouselExample'
+import CarouselExample from "./pages/carousel/CarouselExample";
 import Giphy from "./pages/giphy/Giphy";
+import JSTasks from "./pages/JSTasks";
 
 function App() {
   return (
@@ -26,12 +27,13 @@ function App() {
       <Route path="/exercise/stock-market" component={StockMarket} />
       <Route path="/exercise/js-questions" component={JSQuestions} />
       <Route path="/class" component={ClassExercises} />
+      <Route path="/exercise/js-tasks" exact component={JSTasks} />
       <Route path="/lottery" component={Lottery} />
       <Route path="/react/practice" exact component={ReactPractice} />
       <Route path="/react/practice/details/:id" exact component={FullCard} />
       <Route path="/react/form" exact component={Form} />
-      <Route path='/carousel' exact component={CarouselExample} />
-      <Route path="/giphy" exact component={Giphy}/>
+      <Route path="/carousel" exact component={CarouselExample} />
+      <Route path="/giphy" exact component={Giphy} />
     </Router>
   );
 }
